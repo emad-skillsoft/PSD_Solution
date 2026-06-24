@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.37314.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo", "CRMApp\Demo.csproj", "{6E885A54-D266-4F40-BC76-0B962998172E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PSD_CRM", "PSD_CRM\PSD_CRM.csproj", "{212E6DD6-7EA5-45B2-81CC-C2041EFD27F5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "STSBank", "STSBank\STSBank.csproj", "{62313B86-5064-4F48-88A1-B0A7DF54CA23}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6E885A54-D266-4F40-BC76-0B962998172E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E885A54-D266-4F40-BC76-0B962998172E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E885A54-D266-4F40-BC76-0B962998172E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E885A54-D266-4F40-BC76-0B962998172E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{212E6DD6-7EA5-45B2-81CC-C2041EFD27F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{212E6DD6-7EA5-45B2-81CC-C2041EFD27F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{212E6DD6-7EA5-45B2-81CC-C2041EFD27F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{212E6DD6-7EA5-45B2-81CC-C2041EFD27F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62313B86-5064-4F48-88A1-B0A7DF54CA23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62313B86-5064-4F48-88A1-B0A7DF54CA23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62313B86-5064-4F48-88A1-B0A7DF54CA23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62313B86-5064-4F48-88A1-B0A7DF54CA23}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {66D093E2-6F86-4EEF-A1CB-92516A4CCECB}
+	EndGlobalSection
+EndGlobal
