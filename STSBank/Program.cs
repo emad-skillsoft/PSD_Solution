@@ -65,9 +65,39 @@ namespace STSBank
 
                             break;
                         case 3:
-                            
+                            Console.Write("Please type ID: ");
+                            int idSearchValue=int.Parse(Console.ReadLine());
 
-                            break;
+                            int location = id.IndexOf(idSearchValue);
+                            if (location != -1)
+                            {
+                                Console.WriteLine($"Current Balance: {balance[location]}");
+
+                                Console.Write("Press (W)Withdraw (D)Deposit: ");
+                                char operation=Console.ReadKey().KeyChar;
+                                Console.WriteLine("");
+
+
+                                Console.Write("Amount: ");
+                                decimal amount=decimal.Parse(Console.ReadLine());
+                                if (operation=='w')
+                                {
+                                    balance[location] = balance[location] - amount;
+                                }
+                                else
+                                {
+                                    balance[location] = balance[location] + amount;
+                                }
+
+                                Console.WriteLine("Done Modifying Balance");
+                                Console.WriteLine($"Current Balance: {balance[location]}");
+                            }
+                            else
+                            {
+                                Console.WriteLine("Account Not Found .. Try again!");
+                            }
+
+                                break;
                         case 4:
                             Console.WriteLine("Good Bye!");
                             System.Environment.Exit(0);

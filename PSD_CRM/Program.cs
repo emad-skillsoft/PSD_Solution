@@ -19,8 +19,8 @@ namespace PSD_CRM
                 try
                 {
                     Console.Clear();
-                    Console.WriteLine("Welcome To PSD Customer Service");
-                    Console.WriteLine("===============================");
+                    Console.WriteLine("Welcome To PSD Customer Service V1");
+                    Console.WriteLine("==================================");
                     Console.WriteLine("1) Add Customer");
                     Console.WriteLine("2) Display Customers");
                     Console.WriteLine("3) Delete Customer");
