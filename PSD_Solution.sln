@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PSD_CRM", "PSD_CRM\PSD_CRM.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "STSBank", "STSBank\STSBank.csproj", "{62313B86-5064-4F48-88A1-B0A7DF54CA23}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CRM_OOP", "CRM_OOP\CRM_OOP.csproj", "{200319DD-4736-4425-BD64-C823ED836BA8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{62313B86-5064-4F48-88A1-B0A7DF54CA23}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{62313B86-5064-4F48-88A1-B0A7DF54CA23}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{62313B86-5064-4F48-88A1-B0A7DF54CA23}.Release|Any CPU.Build.0 = Release|Any CPU
+		{200319DD-4736-4425-BD64-C823ED836BA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{200319DD-4736-4425-BD64-C823ED836BA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{200319DD-4736-4425-BD64-C823ED836BA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{200319DD-4736-4425-BD64-C823ED836BA8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
