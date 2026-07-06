@@ -30,21 +30,29 @@ namespace CRM_OOP
                     switch (choice)
                     {
                         case 1:
+
+                            /* (Block Comment)
                             Customer obj = new Customer();
                             obj.Id = customers.Count + 1;
-
                             Console.Write("Please type your name: ");
                             obj.Name = Console.ReadLine();
+                            Console.Write("Please type your Age: ");
+                            obj.Age = int.Parse(Console.ReadLine());
+                            Console.Write("Please type your Mobile Number: ");
+                            obj.Mobile= Console.ReadLine();
+                            customers.Add(obj);
+                            */
+
+
+                            Console.Write("Please type your name: ");
+                            string name = Console.ReadLine();
+                            Customer obj = new Customer(customers.Count + 1,name);
 
                             Console.Write("Please type your Age: ");
                             obj.Age = int.Parse(Console.ReadLine());
-
-
                             Console.Write("Please type your Mobile Number: ");
-                            obj.Mobile= Console.ReadLine();
-
+                            obj.Mobile = Console.ReadLine();
                             customers.Add(obj);
-
 
                             Console.WriteLine("Done Adding New Customer ...");
                             break;
@@ -70,9 +78,20 @@ namespace CRM_OOP
                                     {
                                         if (comp.CustomerID== custObj.Id)
                                         {
+
                                             Console.WriteLine($"Complaint ID: {comp.Id}");
                                             Console.WriteLine($"Complaint Status: {comp.Status}");
                                             Console.WriteLine($"Complaint Description: {comp.Description}");
+
+                                            if (comp is LandlineComplaint)
+                                            {
+                                                LandlineComplaint landComp = (LandlineComplaint)comp; //casting
+                                                Console.WriteLine($"Landline Number: {landComp.LandlineNumer}");
+                                                Console.WriteLine($"Complaint Description: {landComp.Address}");
+                                            }
+
+
+
                                             Console.WriteLine($"********************************");
                                         }
                                     }
@@ -97,8 +116,10 @@ namespace CRM_OOP
                                 if (custObj.Id==customerID)
                                 {
                                     isFound = true;
+                                    /*
                                     Console.Write("Please type your name: ");
                                     custObj.Name = Console.ReadLine();
+                                    */
 
                                     Console.Write("Please type your Age: ");
                                     custObj.Age = int.Parse(Console.ReadLine());
@@ -145,17 +166,26 @@ namespace CRM_OOP
                             break;
 
                         case 5:
-                            Complaint compObj = new Complaint();
+
+                            //Complaint compObj = new Complaint(complaints.Count + 1, CustomerID);
+                            LandlineComplaint compObj = new LandlineComplaint();
+
                             compObj.Id = complaints.Count + 1;
 
-                            Console.Write("Please type Customer ID: ");
-                            compObj.CustomerID = int.Parse(Console.ReadLine());
-
-                            compObj.Status = ComplaintStatus.Opened;
+                             Console.Write("Please type Customer ID: ");
+                            compObj.CustomerID= int.Parse(Console.ReadLine());
 
                             Console.Write("Please type Complain Description: ");
                             compObj.Description= Console.ReadLine();
 
+
+                            Console.Write("Please type Landline Number: ");
+                            compObj.LandlineNumer = Console.ReadLine();
+
+
+                            Console.Write("Please type Landline Address: ");
+                            compObj.Address = Console.ReadLine(); 
+                            
                             complaints.Add(compObj);
 
 

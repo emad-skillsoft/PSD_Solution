@@ -10,9 +10,26 @@ namespace CRM_OOP
 
     public class Complaint
     {
-        // Data Members
-        public int Id { get; set; }
-        public int CustomerID { get; set; }
+
+        public Complaint()
+        {
+            Status = ComplaintStatus.Opened;
+        }
+
+
+        public Complaint(int id,int customerid,string description="")
+        {
+            Id = id;
+            CustomerID = customerid;
+            Status= ComplaintStatus.Opened;
+            Description = description;
+
+        }
+
+        //Access Modifiers (public,private)
+        // Data Members 
+        public int Id { get;  set; }
+        public int CustomerID { get;  set; }
         public ComplaintStatus Status{ get; set; }
         public string Description { get; set; }
 
@@ -23,4 +40,19 @@ namespace CRM_OOP
             Status = sts;
         }
     }
+
+    public class LandlineComplaint : Complaint
+    {
+        public LandlineComplaint()
+        {
+                
+        }
+
+        //Data Members
+        public string LandlineNumer { get; set; }
+        public string Address { get; set; }
+
+
+    }
+
 }
