@@ -6,6 +6,7 @@ namespace CRM_OOP
     {
         static List<Customer> customers = new List<Customer>(); 
         static List<Complaint> complaints= new List<Complaint>();
+        //Comment
         static void Main(string[] args)
         {
             do
@@ -22,9 +23,10 @@ namespace CRM_OOP
                     Console.WriteLine("4) Delete Customer");
                     Console.WriteLine("5) Add Compliant");
                     Console.WriteLine("6) Change Complaint Status");
-                    Console.WriteLine("7) Exit");
+                    Console.WriteLine("7) Settings");
+                    Console.WriteLine("8) Exit");
                     Console.WriteLine("===============================");
-                    Console.Write("Select an Option (1-7): ");
+                    Console.Write("Select an Option (1-8): ");
                     int choice = int.Parse(Console.ReadLine());
 
                     switch (choice)
@@ -82,6 +84,13 @@ namespace CRM_OOP
                                             Console.WriteLine($"Complaint ID: {comp.Id}");
                                             Console.WriteLine($"Complaint Status: {comp.Status}");
                                             Console.WriteLine($"Complaint Description: {comp.Description}");
+
+                                            Console.WriteLine($"Complaint Create Date: {comp.CreationDate}");
+                                            //elapsed Days (TimeSpan)  =  current date - creation date
+                                            TimeSpan elapsedDaysSinceCreation = DateTime.Now - comp.CreationDate;
+                                            int reaminingDays = Complaint.MaxDaysToClose - elapsedDaysSinceCreation.Days;
+                                            Console.WriteLine($"Number Of Days To Close Complaint: {reaminingDays}");
+
 
                                             if (comp is LandlineComplaint)
                                             {
@@ -228,6 +237,11 @@ namespace CRM_OOP
 
                             break;
                         case 7:
+                            Console.WriteLine("Please type Maximum Days to Close a Complain: ");
+                            Complaint.MaxDaysToClose= int.Parse(Console.ReadLine());
+                            Console.Write("Done Update Maximum Days Configuration ...");
+                            break;
+                        case 8:
                             Console.WriteLine("Good Bye!");
                             System.Environment.Exit(0);
                             break;

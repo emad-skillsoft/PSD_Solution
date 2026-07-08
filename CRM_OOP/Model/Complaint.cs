@@ -11,9 +11,13 @@ namespace CRM_OOP
     public class Complaint
     {
 
+        // Static/Class Data Members
+        public static int MaxDaysToClose=0;
+
         public Complaint()
         {
             Status = ComplaintStatus.Opened;
+            CreationDate= DateTime.Now;
         }
 
 
@@ -23,16 +27,17 @@ namespace CRM_OOP
             CustomerID = customerid;
             Status= ComplaintStatus.Opened;
             Description = description;
+            CreationDate= DateTime.Now;
 
         }
 
         //Access Modifiers (public,private)
-        // Data Members 
+        // instance Data Members 
         public int Id { get;  set; }
         public int CustomerID { get;  set; }
         public ComplaintStatus Status{ get; set; }
         public string Description { get; set; }
-
+        public DateTime CreationDate { get; set; }
 
         // Method Members
         public void ChangeStatus(ComplaintStatus sts)
