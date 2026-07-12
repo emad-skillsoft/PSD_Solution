@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using CRM_OOP.Model;
+using System.Reflection;
 
 namespace CRM_OOP
 {
@@ -9,6 +10,18 @@ namespace CRM_OOP
         //Comment
         static void Main(string[] args)
         {
+
+            //List<Shape> shapes = new List<Shape>();
+            //shapes.Add(new Circle());
+            //shapes.Add(new Rectangle());
+            //shapes.Add(new Circle());
+
+            //foreach(Shape shape in shapes)
+            //{
+            //    shape.Draw();
+            //}
+
+
             do
             {
 

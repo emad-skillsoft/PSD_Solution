@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "STSBank", "STSBank\STSBank.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CRM_OOP", "CRM_OOP\CRM_OOP.csproj", "{200319DD-4736-4425-BD64-C823ED836BA8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankAccount_OOP", "BankAccount_OOP\BankAccount_OOP.csproj", "{551DE5D0-63AD-4AF4-8FD8-061F6DF804E6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{200319DD-4736-4425-BD64-C823ED836BA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{200319DD-4736-4425-BD64-C823ED836BA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{200319DD-4736-4425-BD64-C823ED836BA8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{551DE5D0-63AD-4AF4-8FD8-061F6DF804E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{551DE5D0-63AD-4AF4-8FD8-061F6DF804E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{551DE5D0-63AD-4AF4-8FD8-061F6DF804E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{551DE5D0-63AD-4AF4-8FD8-061F6DF804E6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
