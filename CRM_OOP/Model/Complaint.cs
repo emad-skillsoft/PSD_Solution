@@ -8,7 +8,7 @@ namespace CRM_OOP
 {
     public enum ComplaintStatus { Opened, InProcess, Resolved }
 
-    public class Complaint
+    public abstract class Complaint
     {
 
         // Static/Class Data Members
@@ -44,6 +44,9 @@ namespace CRM_OOP
         {
             Status = sts;
         }
+
+        public abstract void Describe();
+
     }
 
     public class LandlineComplaint : Complaint
@@ -56,6 +59,33 @@ namespace CRM_OOP
         //Data Members
         public string LandlineNumer { get; set; }
         public string Address { get; set; }
+
+        //Methods
+        public override void Describe()
+        {
+            Console.WriteLine($"AccountID: {Id} ,Customer ID: {CustomerID}, Landline Number {LandlineNumer}, Address {Address}");
+        }
+
+
+    }
+
+    public enum SimType {Macro, Micro, Digital }
+    public class MobileLineComplaint : Complaint
+    {
+        public MobileLineComplaint()
+        {
+
+        }
+
+        //Data Members
+        public string MobilelineNumer { get; set; }
+        public SimType SimType { get; set; }
+
+        //Methods
+        public override void Describe()
+        {
+            Console.WriteLine($"AccountID: {Id} ,Customer ID: {CustomerID}, Mobile Number {MobilelineNumer}, Sim Type {SimType}");
+        }
 
 
     }

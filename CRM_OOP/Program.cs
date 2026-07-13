@@ -1,6 +1,6 @@
 ﻿using CRM_OOP.Model;
 using System.Reflection;
-
+using System.IO;
 namespace CRM_OOP
 {
     internal class Program
@@ -38,8 +38,10 @@ namespace CRM_OOP
                     Console.WriteLine("6) Change Complaint Status");
                     Console.WriteLine("7) Settings");
                     Console.WriteLine("8) Exit");
+                    Console.WriteLine("9) Display All Complaints");
+                    Console.WriteLine("10) Display Logs");
                     Console.WriteLine("===============================");
-                    Console.Write("Select an Option (1-8): ");
+                    Console.Write("Select an Option (1-10): ");
                     int choice = int.Parse(Console.ReadLine());
 
                     switch (choice)
@@ -57,7 +59,7 @@ namespace CRM_OOP
                             obj.Mobile= Console.ReadLine();
                             customers.Add(obj);
                             */
-
+                            
 
                             Console.Write("Please type your name: ");
                             string name = Console.ReadLine();
@@ -258,6 +260,25 @@ namespace CRM_OOP
                             Console.WriteLine("Good Bye!");
                             System.Environment.Exit(0);
                             break;
+
+
+                        case 9:
+
+                            foreach (Complaint comp in complaints)
+                            {
+                                comp.Describe();
+                            }
+
+                            break;
+
+                        case 10:
+                            string[] lines=File.ReadAllLines("E:\\PSD\\PSD_Solution\\CRM_OOP\\Logs\\erros.log");
+                            foreach (string line in lines)
+                            {
+                                Console.WriteLine(line);
+                            }
+
+                            break;
                         default:
                             Console.WriteLine("Sorry, select (1-5)");
                             break;
@@ -267,9 +288,11 @@ namespace CRM_OOP
                 }
                 catch (Exception ex)
                 {
-
-                    Console.WriteLine($"{ex.Message}");
+                    File.AppendAllText("E:\\PSD\\PSD_Solution\\CRM_OOP\\Logs\\erros.log", $"{DateTime.Now}: {ex.Message} \n");
+                    File.AppendAllText("E:\\PSD\\PSD_Solution\\CRM_OOP\\Logs\\erros.log", $"{DateTime.Now}: {ex.GetBaseException().StackTrace} \n");
+                    
                     Console.WriteLine("Please Call the administrator!");
+                    
 
                 }
                 finally
