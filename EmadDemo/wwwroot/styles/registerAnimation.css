@@ -1,0 +1,32 @@
+/* Styles for the feedback page */
+
+#register-sent {
+    display: none; 
+}
+
+
+@-ms-keyframes send {
+    0% {
+        -ms-transform: scale(1);
+    }
+    50% {
+        -ms-transform: scale(.8);
+    }
+    100% {
+        -ms-transform: translate(0, -1000px);
+    }
+}
+
+.sending {
+    background-color: #EAEEFA;
+    border: 1px solid #888;
+
+    /* Animations for sending feedback */
+    
+    -ms-animation-name: send;
+    -ms-animation-duration: 1s;
+    -ms-animation-iteration-count: 1;
+    -ms-animation-fill-mode: forwards;
+    /* Drop shadow */
+    -ms-box-shadow: 0px 3px 3px rgba(0,0,0,.8);
+}

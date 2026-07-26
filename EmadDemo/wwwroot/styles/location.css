@@ -1,0 +1,10 @@
+﻿.location #distance {
+    color: #FF0000;
+}
+
+
+/*************************************/
+
+.room {
+    cursor: pointer;
+}

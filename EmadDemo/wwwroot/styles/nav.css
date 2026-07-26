@@ -1,0 +1,43 @@
+﻿nav {
+    background-color: blue;
+    line-height: 30px;
+}
+
+
+    nav .nav-container {
+        display: -ms-flexbox;
+        -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    }
+
+    nav a {
+        display: block;
+        min-width: 9rem;
+        padding: 0 1.8rem;
+        border-right: 1px dotted #3D3D3D;
+        text-decoration: none;
+        text-transform: uppercase;
+        text-align: center;
+        color: #c3c3c3;
+        -webkit-text-shadow: 0 1px 0 #000;
+        text-shadow: 0 1px 0 #000;
+    }
+
+        nav a:first-child {
+            border-left: 1px dotted #3D3D3D;
+        }
+
+        nav a:hover {
+            color: #e4e4e4;
+            background-color: black;
+        }
+
+    nav .active {
+        color: #fff;
+        background-color: #FF0000;
+    }
+
+        nav .active:hover {
+            color: #fff; /* Overrides hover effect for active page link */
+        }

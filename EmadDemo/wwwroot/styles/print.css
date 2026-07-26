@@ -1,0 +1,14 @@
+/* Styles for when page is being printed */
+
+nav,
+header,
+footer{
+    display: none;
+}
+
+
+ article.articleContent>section {
+
+    column-count: 1;
+
+}

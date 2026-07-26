@@ -1,0 +1,122 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Amana Offical Portal</title>
+    <link href="styles/maincontent.css" rel="stylesheet" type="text/css" />
+    <link href="styles/nav.css" rel="stylesheet" type="text/css" />
+
+    <link href="styles/register.css" rel="stylesheet" type="text/css" />
+    <link href="styles/mobile.css" rel="stylesheet" />
+    <link href="styles/registerAnimation.css" rel="stylesheet" />
+    <script src="script/jquery.min.js"></script>
+
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#country").change(function () {
+                $.getJSON("http://localhost:1052/api/values/",
+                    { id: $(this).val(), ajax: true },
+                    function (result) {
+                        var options = "";
+                        for (var i = 0; i < result.length; i++) {
+                            options += '<option value="' + (i + 1) + '">' + result[i] + '</option>';
+                        }
+                        $("#city").html(options);
+
+                    }
+
+                    );
+            });
+        });
+
+
+    </script>
+
+</head>
+<body>
+
+    <div class="container">
+        <header>
+
+            <img alt="Amana Logo" src="images/sponsors/sponsor1.png" />
+        </header>
+        <section class="content">
+            <nav>
+                <div class="nav-container">
+                    <a href="Home.htm">Home</a>
+                    <a href="Register.htm" class="active">Register</a>
+                    <a href="AboutUs.htm">About US</a>
+                    <a href="location.htm">Location</a>
+                    <a href="Chat.htm">chat</a>
+                </div>
+            </nav>
+
+            <section class="register" id="registerSection">
+                <div class="register-container">
+                    <h1>Register in ElAmana</h1>
+                    <form action="/" method="post">
+
+                        <div class="field">
+                            <img alt="Please Select your Image" id="profileImage" />
+                            <input id="profileImageFile" type="file" onchange="treyresearch.register.readProfileImage()" />
+                            
+                        </div>
+
+                        <div class="field">
+                            <label for="first-name">First name:</label>
+                            <input type="text" id="first-name" name="FirstName"
+                                required="required" autofocus="autofocus" />
+                        </div>
+                        <div class="field">
+                            <label for="password">Password:</label>
+                            <input type="password" id="password" name="password"
+                                required="required" pattern="\d{6}"
+                                title="6 digits is required" />
+                        </div>
+                        <div class="field">
+                            <label for="confirm-password">Confirm your password:</label>
+                            <input type="password" id="confirm-password" name="ConfirmPassword"
+                                required="required" />
+                        </div>
+
+                        <div class="field">
+                            <label for="country">Country:</label>
+                            <select id="country">
+                                <option>Select ...</option>
+                                <option value="1">KSA</option>
+                                <option value="2">EGYPT</option>
+                            </select>
+                        </div>
+                        <div class="field">
+                            <label for="city">City:</label>
+                            <select id="city"></select>
+                        </div>
+
+                        <div class="field">
+                            <label for="website">Website/blog:</label>
+                            <input type="url" id="website" name="WebsiteUrl" placeholder="http://" />
+                        </div>
+
+                        <div>
+
+                            <button type="submit" onclick="return  treyresearch.register.submitValidationJQuery();">Register</button>
+                            <button type="button" id="callServices">Subtract</button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+            
+            <section id="register-sent">
+                <h1>Thanks for Register With US</h1>
+            </section>
+
+        </section>
+        <footer>
+            Copyright @2015 reserved for AMANA
+        </footer>
+    </div>
+</body>
+</html>
+<script src="script/_namespace.js"></script>
+<script src="script/register.js"></script>
+<script src="script/location-webworker.js"></script>

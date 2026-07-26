@@ -1,0 +1,38 @@
+﻿body {
+    background-color: #CCCCCC;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+}
+
+.container {
+    margin: 30px;
+    background-color: #D2EEFF;
+    min-height: 600px;
+}
+
+header {
+    margin: 5px;
+    border-color: #000000;
+    border-width: thin;
+    border-style: none none solid none;
+    padding: 10px;
+    min-height: 60px;
+}
+
+section {
+    margin: 5px;
+    padding: 10px;
+}
+
+section.content {
+    min-height: 400px;
+}
+
+footer {
+    margin: 5px;
+    border-color: #000000;
+    border-width: thin;
+    border-style: solid none none none;
+    padding: 10px;
+    text-align: center;
+}

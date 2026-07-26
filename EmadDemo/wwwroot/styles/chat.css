@@ -1,0 +1,53 @@
+﻿/* Styles for the register page */
+
+.chat form {
+    max-width: 400px;    
+}
+
+.chat .field {
+    margin-bottom: 10px;
+}
+
+.chat label {
+    display: block;
+}
+
+.chat input {
+    display: block;
+    padding: 4px;
+    width: 100%;
+   
+}
+
+.chat textarea {
+    display: block;
+    padding: 4px;
+    width: 100%;
+    height:100px;
+   
+}
+
+.chat #replyArea {
+    border-width: thin;
+    border-style: solid;
+    display: block;
+    padding: 4px;
+    width: 100%;
+    height: 100px;
+    background-color: #FFFFFF;
+    overflow:auto;
+}
+
+
+.chat select {
+    display: block;
+    padding: 4px;
+    width: 100%;
+   
+}
+
+.chat button {
+    padding: 5px;
+    margin-top:5px;
+}
+

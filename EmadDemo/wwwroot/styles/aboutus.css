@@ -1,0 +1,48 @@
+﻿article.articleContent>section {
+    text-align: justify;
+    /* Columns Layout */
+    column-count: 3;
+    column-gap: 80px;
+}
+
+
+article.articleContent p:first-child:first-letter /* Picks out first letter only for drop cap effect */ {
+    font-size: 48px;
+    float: left;
+    margin: 0 8px 0 0;
+    line-height: .8px;
+    color: #aaa;
+}
+
+article.articleContent p {
+    text-indent: 20px;
+}
+
+article.articleContent p:first-child /* Prevents text indenting after drop cap */ {
+    text-indent: 0;
+    margin-top: 0;
+}
+
+article.articleContent blockquote {
+    font-size: 18px;
+    padding: 0 0 0 96px;
+    margin: 0;
+    font-style: italic;
+    position: relative;
+
+}
+
+article.articleContent blockquote:before {
+    content: '\201C';
+    position: absolute;
+    font-size: 75px;
+    font-family: serif;
+    left: 0;
+    top: 16px;
+    line-height: 1;
+}
+
+
+
+
+
