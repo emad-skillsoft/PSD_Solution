@@ -6,8 +6,10 @@ namespace PSDWebApp
         {
             var builder = WebApplication.CreateBuilder(args);
 
+
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            builder.Services.AddSingleton<Services.CustomerService>();
 
             var app = builder.Build();
 
@@ -17,16 +19,9 @@ namespace PSDWebApp
                 app.UseExceptionHandler("/Home/Error");
             }
 
-            // confire the app to serve static files from the wwwroot folder
-
-            DefaultFilesOptions options = new DefaultFilesOptions();
-            options.DefaultFileNames=new List<string> { "home.html" };
-            app.UseDefaultFiles(options);
-            app.UseStaticFiles();
+            // configure the app to serve static files from the wwwroot folder
 
 
-
-            /*
             app.UseRouting();
 
             app.UseAuthorization();
@@ -36,7 +31,7 @@ namespace PSDWebApp
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}")
                 .WithStaticAssets();
-            */
+            
 
             app.Run();
         }
