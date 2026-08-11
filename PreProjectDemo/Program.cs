@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using PreProjectDemo.Data;
+using PreProjectDemo.Services;
 namespace PreProjectDemo
 {
     public class Program
@@ -11,6 +12,8 @@ namespace PreProjectDemo
                 throw new InvalidOperationException("Connection string 'PreProjectDemoContext' not found.");
 
             builder.Services.AddDbContext<PreProjectDemoContext>(options => options.UseSqlServer(connectionString));
+            builder.Services.AddScoped<ICustomerService, CustomerMSSQLService>();
+
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
@@ -29,7 +32,7 @@ namespace PreProjectDemo
             app.MapStaticAssets();
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Customer}/{action=Index}/{id?}")
+                pattern: "{controller=Customers}/{action=Index}/{id?}")
                 .WithStaticAssets();
 
             app.Run();
