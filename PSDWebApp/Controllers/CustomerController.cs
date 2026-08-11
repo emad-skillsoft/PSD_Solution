@@ -1,59 +1,66 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using PSDWebApp.Services;
-using PSDWebApp.Models;
+using PSDWebApp.ViewModel;
+
 
 namespace PSDWebApp.Controllers
 {
+    [Authorize]
     public class CustomerController : Controller
     {
-        private readonly CustomerService _customerService;
+        private readonly ICustomerService _customerService;
 
-        public CustomerController(CustomerService customerService)
+        public CustomerController(ICustomerService customerService)
         {
-            _customerService = customerService; 
+            _customerService = customerService;
+            
         }
+
+    
 
         // GET: CustomerController
         public ActionResult Index()
         {
-            return View(_customerService.Customers);
+            return View(_customerService.GetCustomers());
         }
 
         // GET: CustomerController/Details/5
         public ActionResult Details(int id)
         {
-           var customer = _customerService.Customers.FirstOrDefault(c => c.Id == id);
+            var customer = _customerService.GetCustomerDetailById(id);
+
             return View(customer);
         }
 
         // GET: CustomerController/Create
         public ActionResult Create()
         {
-           
-            return View();
+               
+            return View(new CustomerAddVM());
         }
 
         // POST: CustomerController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([FromForm] Customer customer)
+        public ActionResult Create([FromForm] CustomerAddVM customer)
         {
             try
             {
-                _customerService.Customers.Add(customer);
+                _customerService.AddNewCustomer(customer);
                 return RedirectToAction(nameof(Index));
             }
             catch
             {
-                return View();
+                return View(customer);
             }
         }
 
         // GET: CustomerController/Edit/5
         public ActionResult Edit(int id)
         {
-            var customer = _customerService.Customers.FirstOrDefault(c => c.Id == id);
+            var customer = _customerService.GetCustomerForEditById(id);
 
             return View(customer);
         }
@@ -61,13 +68,13 @@ namespace PSDWebApp.Controllers
         // POST: CustomerController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, [FromForm] Customer customer   )
+        public ActionResult Edit(int id, [FromForm] CustomerEditVM customer)
         {
             try
             {
-                var existingCustomer = _customerService.Customers.FirstOrDefault(c => c.Id == id);
+                _customerService.UpdateCustomerById(id, customer);
 
-                existingCustomer.Name = customer.Name;
+                
 
                 return RedirectToAction(nameof(Index));
             }
@@ -80,26 +87,25 @@ namespace PSDWebApp.Controllers
         // GET: CustomerController/Delete/5
         public ActionResult Delete(int id)
         {
-            var existingCustomer = _customerService.Customers.FirstOrDefault(c => c.Id == id);
+            var customer = _customerService.GetCustomerForDeleteById(id);
 
-            return View(existingCustomer);
+            return View(customer);
         }
 
         // POST: CustomerController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, [FromForm] Customer customer )
+        public ActionResult Delete(int id, [FromForm] CustomerDeleteVM customer)
         {
             try
             {
 
-                var existingCustomer = _customerService.Customers.FirstOrDefault(c => c.Id == id);
-                _customerService.Customers.Remove(existingCustomer);
+                _customerService.DeleteCustomerById(id);
                 return RedirectToAction(nameof(Index));
             }
             catch
             {
-                return View();
+                return View(customer);
             }
         }
     }
