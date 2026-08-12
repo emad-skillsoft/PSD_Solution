@@ -4,7 +4,9 @@ using Microsoft.EntityFrameworkCore;
 using PreProjectDemo.Models;
 using PreProjectDemo.Services;
 using PreProjectDemo.ViewModel;
+using Microsoft.AspNetCore.Authorization;
 
+[Authorize()]
 public class CustomersController : Controller
 {
     private readonly ICustomerService _customerservice;
