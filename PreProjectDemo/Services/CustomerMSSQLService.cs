@@ -27,6 +27,17 @@ namespace PreProjectDemo.Services
             _context.SaveChanges();
         }
 
+        public bool DeleteCustomer(int id)
+        {
+            Customer? customer = _context.Customers.FirstOrDefault(c => c.Id == id);
+            if (customer == null)
+                return false;
+
+            _context.Customers.Remove(customer);
+            _context.SaveChanges();
+            return true;
+        }
+
         public List<CustomerVM> GetAllCustomers()
         {
             return _context.Customers.Select(c => new CustomerVM

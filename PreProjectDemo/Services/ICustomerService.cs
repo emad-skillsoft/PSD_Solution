@@ -12,6 +12,8 @@ namespace PreProjectDemo.Services
         bool UpdateCustomer(CustomerVM new_customer);
 
         CustomerVM? GetCustomerById(int id);
+        
+        bool DeleteCustomer(int id);
 
     }
 }
