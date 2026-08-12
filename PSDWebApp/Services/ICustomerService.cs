@@ -12,5 +12,6 @@ namespace PSDWebApp.Services
         bool DeleteCustomerById(int id);
         void AddNewCustomer(CustomerAddVM customer);
 
+
     }
 }

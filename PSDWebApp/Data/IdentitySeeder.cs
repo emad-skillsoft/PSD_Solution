@@ -23,7 +23,13 @@ namespace PSDWebApp.Data
                     new IdentityRole("User"))
                     .GetAwaiter().GetResult();
             }
-
+            if (!roleManager.RoleExistsAsync("PowerUser")
+                .GetAwaiter().GetResult())
+            {
+                roleManager.CreateAsync(
+                    new IdentityRole("PowerUser"))
+                    .GetAwaiter().GetResult();
+            }
             // Check whether admin user already exists
             var admin = userManager
                 .FindByNameAsync("admin")

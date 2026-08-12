@@ -36,11 +36,11 @@ namespace PSDWebApp
 
 
             var app = builder.Build();
-
+            //Console.WriteLine($"Environment: {app.Environment.EnvironmentName}");
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
             {
-                app.UseExceptionHandler("/Home/Error");
+                app.UseExceptionHandler("/Customer/Error");
             }
 
             // configure the app to serve static files from the wwwroot folder

@@ -7,7 +7,11 @@ namespace PreProjectDemo.Services
     {
         List<CustomerVM> GetAllCustomers();
 
-        void AddCustomer(CustomerVM customer);
+        void AddCustomer(CustomerVM new_customer);
+
+        bool UpdateCustomer(CustomerVM new_customer);
+
+        CustomerVM? GetCustomerById(int id);
 
     }
 }

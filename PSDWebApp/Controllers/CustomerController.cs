@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using PSDWebApp.Models;
 using PSDWebApp.Services;
 using PSDWebApp.ViewModel;
+using System.Diagnostics;
 
 
 namespace PSDWebApp.Controllers
@@ -15,10 +17,10 @@ namespace PSDWebApp.Controllers
         public CustomerController(ICustomerService customerService)
         {
             _customerService = customerService;
-            
+
         }
 
-    
+
 
         // GET: CustomerController
         public ActionResult Index()
@@ -37,7 +39,7 @@ namespace PSDWebApp.Controllers
         // GET: CustomerController/Create
         public ActionResult Create()
         {
-               
+
             return View(new CustomerAddVM());
         }
 
@@ -74,7 +76,7 @@ namespace PSDWebApp.Controllers
             {
                 _customerService.UpdateCustomerById(id, customer);
 
-                
+
 
                 return RedirectToAction(nameof(Index));
             }
@@ -85,8 +87,10 @@ namespace PSDWebApp.Controllers
         }
 
         // GET: CustomerController/Delete/5
+        [Authorize(Roles = "PowerUser")]
         public ActionResult Delete(int id)
         {
+            throw new NotImplementedException();
             var customer = _customerService.GetCustomerForDeleteById(id);
 
             return View(customer);
@@ -95,6 +99,7 @@ namespace PSDWebApp.Controllers
         // POST: CustomerController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "PowerUser")]
         public ActionResult Delete(int id, [FromForm] CustomerDeleteVM customer)
         {
             try
@@ -107,6 +112,18 @@ namespace PSDWebApp.Controllers
             {
                 return View(customer);
             }
+        }
+
+        [ResponseCache(
+        Duration = 0,
+        Location = ResponseCacheLocation.None,
+        NoStore = true)]
+        public IActionResult Error()
+        {
+            return View(new ErrorViewModel
+            {
+                RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier
+            });
         }
     }
 }
