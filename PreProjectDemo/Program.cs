@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using PreProjectDemo.Data;
 using PreProjectDemo.Services;
+using Microsoft.AspNetCore.Identity;
 namespace PreProjectDemo
 {
     public class Program
@@ -12,11 +13,21 @@ namespace PreProjectDemo
                 throw new InvalidOperationException("Connection string 'PreProjectDemoContext' not found.");
 
             builder.Services.AddDbContext<PreProjectDemoContext>(options => options.UseSqlServer(connectionString));
+
+            builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false)
+                            .AddRoles<IdentityRole>()
+                            .AddEntityFrameworkStores<PreProjectDemoContext>()
+                            .AddSignInManager<SignInManager<ApplicationUser>>();
+
+
+
             builder.Services.AddScoped<ICustomerService, CustomerMSSQLService>();
 
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            builder.Services.AddRazorPages();
+
 
             var app = builder.Build();
 
@@ -27,6 +38,7 @@ namespace PreProjectDemo
             }
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.MapStaticAssets();
@@ -34,6 +46,9 @@ namespace PreProjectDemo
                 name: "default",
                 pattern: "{controller=Customers}/{action=Index}/{id?}")
                 .WithStaticAssets();
+
+            app.MapRazorPages();
+
 
             app.Run();
         }
